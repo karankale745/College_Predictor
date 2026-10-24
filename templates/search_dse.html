@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        DSE College Search
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="college-search-page">
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <div class="college-search-page-header">
+
+
+        <button
+            type="button"
+            class="college-search-back-btn"
+            onclick="window.location.href='/dse'"
+        >
+
+            ← Back
+
+        </button>
+
+
+        <div class="college-search-heading">
+
+            <h1>
+
+                DSE College Search
+
+            </h1>
+
+
+            <p>
+
+                Search college and view
+                branch and category-wise cutoff details
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         SEARCH CARD
+    ====================================== -->
+
+    <div class="single-college-search-card">
+
+
+        <div class="single-search-title">
+
+
+            <h2>
+
+                Search DSE College
+
+            </h2>
+
+
+            <p>
+
+                Enter college name or institute code
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             SEARCH INPUT
+        ================================== -->
+
+        <div class="single-search-group">
+
+
+            <label for="collegeSearch">
+
+                College Name / Institute Code
+
+            </label>
+
+
+            <div class="single-search-wrapper">
+
+
+                <input
+                    type="text"
+                    id="collegeSearch"
+                    class="single-college-search-input"
+                    placeholder="Example: Pune, Engineering College, 06006..."
+                    autocomplete="off"
+                    oninput="searchCollege()"
+                >
+
+
+                <span class="single-search-icon">
+
+                    🔍
+
+                </span>
+
+
+                <div
+                    id="collegeSuggestions"
+                    class="single-college-suggestions"
+                >
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             SELECTED COLLEGE
+        ================================== -->
+
+        <div
+            id="selectedSearchCollege"
+            class="single-selected-college"
+            style="display:none;"
+        >
+        </div>
+
+
+
+        <!-- =================================
+             VIEW DETAILS BUTTON
+        ================================== -->
+
+        <div class="single-search-button-container">
+
+
+            <button
+                type="button"
+                id="viewCollegeBtn"
+                class="view-college-details-btn"
+                onclick="loadCollegeDetails()"
+                disabled
+            >
+
+                View College Details
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         LOADING
+    ====================================== -->
+
+    <div
+        id="collegeSearchLoading"
+        class="college-search-loading"
+        style="display:none;"
+    >
+
+
+        <div class="college-search-loader">
+        </div>
+
+
+        <p>
+
+            Loading DSE college details...
+
+        </p>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         COLLEGE RESULT
+    ====================================== -->
+
+    <div
+        id="collegeSearchResult"
+        class="college-search-result"
+    >
+    </div>
+
+
+</div>
+
+
+<script src="/static/access.js"></script>
+<script
+    src="/static/search_dse.js"
+></script>
+
+
+</body>
+
+</html>

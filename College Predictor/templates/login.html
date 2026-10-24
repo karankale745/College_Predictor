@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Login</title>
+
+<link
+rel="stylesheet"
+href="/static/auth.css">
+
+<script
+src="https://accounts.google.com/gsi/client"
+async
+defer>
+</script>
+
+</head>
+
+<body>
+
+<div class="auth-page">
+
+<div class="auth-card">
+
+<div class="auth-logo">
+🎓
+</div>
+
+<h1>Welcome Back</h1>
+
+<p class="auth-subtitle">
+Login to continue to College Predictor
+</p>
+
+
+<div
+id="g_id_onload"
+data-client_id="{{ google_client_id }}"
+data-callback="handleGoogleLogin"
+data-auto_prompt="false">
+</div>
+
+
+<div
+class="g_id_signin"
+data-type="standard"
+data-shape="rectangular"
+data-theme="outline"
+data-text="continue_with"
+data-size="large"
+data-logo_alignment="left"
+data-width="360">
+</div>
+
+
+<div class="auth-divider">
+
+<span>OR</span>
+
+</div>
+
+
+<form
+id="loginForm">
+
+<div class="auth-group">
+
+<label>Email Address</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter your email"
+required>
+
+</div>
+
+
+<div class="auth-group">
+
+<label>Password</label>
+
+<div class="password-box">
+
+<input
+type="password"
+id="password"
+placeholder="Enter your password"
+required>
+
+<button
+type="button"
+onclick="togglePassword()">
+Show
+</button>
+
+</div>
+
+</div>
+
+
+<div class="forgot-row">
+
+<a href="/forgot-password">
+Forgot Password?
+</a>
+
+</div>
+
+
+<div
+id="authMessage"
+class="auth-message">
+</div>
+
+
+<button
+type="submit"
+class="auth-primary-btn">
+
+Login
+
+</button>
+
+</form>
+
+
+<p class="auth-switch">
+
+Don't have an account?
+
+<a href="/register">
+Create Account
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+const form =
+document.getElementById(
+    "loginForm"
+);
+
+
+form.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const response =
+        await fetch(
+            "/api/login",
+            {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                    "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    email:
+                    document.getElementById(
+                        "email"
+                    ).value,
+
+                    password:
+                    document.getElementById(
+                        "password"
+                    ).value
+
+                })
+
+            }
+        );
+
+
+        const data =
+        await response.json();
+
+
+        if (!response.ok) {
+
+            showMessage(
+                data.error
+            );
+
+            return;
+
+        }
+
+
+        window.location.href =
+        "/unlock";
+
+    }
+);
+
+
+async function handleGoogleLogin(
+    googleResponse
+) {
+
+    const response =
+    await fetch(
+        "/api/google-login",
+        {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type":
+                "application/json"
+            },
+
+            body: JSON.stringify({
+
+                credential:
+                googleResponse.credential
+
+            })
+
+        }
+    );
+
+
+    const data =
+    await response.json();
+
+
+    if (!response.ok) {
+
+        showMessage(
+            data.error
+        );
+
+        return;
+
+    }
+
+
+    window.location.href =
+    "/unlock";
+
+}
+
+
+function togglePassword() {
+
+    const password =
+    document.getElementById(
+        "password"
+    );
+
+
+    password.type =
+
+        password.type === "password"
+
+        ?
+
+        "text"
+
+        :
+
+        "password";
+
+}
+
+
+function showMessage(message) {
+
+    document.getElementById(
+        "authMessage"
+    ).textContent = message;
+
+}
+
+</script>
+
+</body>
+
+</html>

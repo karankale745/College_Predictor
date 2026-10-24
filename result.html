@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction Results</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#f5f6fa;
+}
+
+.header{
+background:#dc2626;
+color:white;
+padding:20px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+.summary{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+margin-bottom:20px;
+}
+
+.summary-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-top:15px;
+}
+
+.summary-box{
+background:#f8fafc;
+padding:15px;
+border-radius:10px;
+}
+
+.summary-box h4{
+color:#dc2626;
+margin-bottom:5px;
+}
+
+.filter-bar{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+.filter-bar select{
+padding:10px;
+border-radius:10px;
+border:1px solid #ddd;
+}
+
+.result-card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+margin-bottom:15px;
+}
+
+.top-row{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+margin-bottom:10px;
+}
+
+.code{
+font-weight:bold;
+color:#dc2626;
+font-size:18px;
+}
+
+.cutoff{
+font-weight:bold;
+font-size:20px;
+color:#16a34a;
+}
+
+.college-name{
+font-size:18px;
+font-weight:600;
+margin-bottom:10px;
+}
+
+.details{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:10px;
+}
+
+.tag{
+background:#f1f5f9;
+padding:8px;
+border-radius:8px;
+}
+
+.btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 15px;
+background:#dc2626;
+color:white;
+text-decoration:none;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="header">
+College Prediction Results
+</div>
+
+<div class="container">
+
+<div class="summary">
+
+<h2>Prediction Summary</h2>
+
+<div class="summary-grid">
+
+<div class="summary-box">
+<h4>Percentage</h4>
+<p>70%</p>
+</div>
+
+<div class="summary-box">
+<h4>Category</h4>
+<p>OPEN</p>
+</div>
+
+<div class="summary-box">
+<h4>Region</h4>
+<p>All Regions</p>
+</div>
+
+<div class="summary-box">
+<h4>Branch</h4>
+<p>AIML</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="filter-bar">
+
+<select>
+<option>All Districts</option>
+<option>Pune</option>
+<option>Ahilyanagar</option>
+<option>Nashik</option>
+</select>
+
+<select>
+<option>All College Types</option>
+<option>Government</option>
+<option>Government Autonomous</option>
+<option>Autonomous</option>
+<option>Non-Autonomous</option>
+</select>
+
+<select>
+<option>Sort By Cutoff</option>
+<option>Highest First</option>
+<option>Lowest First</option>
+</select>
+
+</div>
+
+<!-- College 1 -->
+
+<div class="result-card">
+
+<div class="top-row">
+<div class="code">6272</div>
+<div class="cutoff">69.85%</div>
+</div>
+
+<div class="college-name">
+Pimpri Chinchwad College of Engineering, Pune
+</div>
+
+<div class="details">
+
+<div class="tag">
+Branch: AIML
+</div>
+
+<div class="tag">
+Category: GOPEN
+</div>
+
+<div class="tag">
+District: Pune
+</div>
+
+<div class="tag">
+Type: Autonomous
+</div>
+
+</div>
+
+<a href="#" class="btn">
+College Details
+</a>
+
+</div>
+
+<!-- College 2 -->
+
+<div class="result-card">
+
+<div class="top-row">
+<div class="code">6146</div>
+<div class="cutoff">68.75%</div>
+</div>
+
+<div class="college-name">
+MIT Academy of Engineering, Alandi
+</div>
+
+<div class="details">
+
+<div class="tag">
+Branch: AIML
+</div>
+
+<div class="tag">
+Category: GOPEN
+</div>
+
+<div class="tag">
+District: Pune
+</div>
+
+<div class="tag">
+Type: Autonomous
+</div>
+
+</div>
+
+<a href="#" class="btn">
+College Details
+</a>
+
+</div>
+
+<!-- College 3 -->
+
+<div class="result-card">
+
+<div class="top-row">
+<div class="code">5101</div>
+<div class="cutoff">67.50%</div>
+</div>
+
+<div class="college-name">
+JSPM College of Engineering, Pune
+</div>
+
+<div class="details">
+
+<div class="tag">
+Branch: AIML
+</div>
+
+<div class="tag">
+Category: GOPEN
+</div>
+
+<div class="tag">
+District: Pune
+</div>
+
+<div class="tag">
+Type: Non-Autonomous
+</div>
+
+</div>
+
+<a href="#" class="btn">
+College Details
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
