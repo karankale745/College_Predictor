@@ -4,3 +4,8 @@ python-dotenv
 google-auth
 requests
 razorpay
+
+
+Flask-Limiter
+
+gunicorn
